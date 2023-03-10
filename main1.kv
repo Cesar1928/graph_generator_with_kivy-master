@@ -1,0 +1,454 @@
+
+#: import SwapTransition kivy.uix.screenmanager.SwapTransition
+
+<ui>:
+    #Transition: SwapTransition()
+    MDScreen:
+        MDBoxLayout:
+            orientation: 'vertical'
+            MDToolbar:
+                title: "Asistencia Técnica"
+                left_action_items: [["menu", lambda x: nav_draw.set_state()]]
+            Widget:
+        MDNavigationLayout:    
+            ScreenManager:
+                id: screen_manager
+                MDScreen:
+                    name: "scr1"
+                    MDBoxLayout: 
+                        MDBoxLayout:
+                            orientation: "horizontal"
+                            padding: [5,70,80,5]
+                                                                                 
+                            MDBoxLayout:
+                                orientation: "vertical"
+                                padding: [100,20,100,60]
+                                spacing: 10
+                                                                        
+                                MDTextFieldRect:
+                                    id: fr 
+                                    multiline: False
+                                    #text:"7.0"
+                                    hint_text: "Factor Roca:"
+                                    pos_hint: {"center_x":0.5}
+                                    font_size: dp(15)
+
+                                                                                                                
+                                MDTextFieldRect:
+                                    id: b
+                                    multiline: False
+                                    #text: "3.0"
+                                    hint_text: "Burden(m):"
+                                    pos_hint: {"center_x":0.5}
+                                    font_size: dp(15)
+                                MDTextFieldRect:
+                                    id: s    
+                                    multiline: False
+                                    #text: "4.0"
+                                    hint_text: "Espaciamiento(m):"
+                                    pos_hint: {"center_x":0.5}
+                                    font_size: dp(15)
+                                MDTextFieldRect:
+                                    id: h
+                                    multiline: False
+                                    #text: "11"
+                                    hint_text: "Altura Banco(m):"
+                                    pos_hint: {"center_x":0.5}
+                                    font_size: dp(15)
+                                MDTextFieldRect:
+                                    id: Desv
+                                    multiline: False
+                                    #text: "0.02"    
+                                    hint_text: "Desv.Perf.(m):"
+                                    pos_hint: {"center_x":0.5}
+                                    font_size: dp(15)
+                                MDTextFieldRect:
+                                    id: t
+                                    multiline: False
+                                    #text:"2.8"
+                                    hint_text: "Taco(m):"
+                                    pos_hint: {"center_x":0.5}
+                                    font_size: dp(15)
+                                MDTextFieldRect:
+                                    id: d    
+                                    multiline: False
+                                    #text:"100"
+                                    hint_text: "Diámetro(mm)"
+                                    pos_hint: {"center_x":0.5}
+                                    font_size: dp(15)
+                                MDTextFieldRect:
+                                    id: sp
+                                    multiline: False
+                                    #text:"0"
+                                    hint_text: "Sobre perf.(m):"
+                                    pos_hint: {"center_x":0.5}
+                                    font_size: dp(15)
+                                MDTextFieldRect:
+                                    id: de    
+                                    multiline: False
+                                    #text:"0.82"
+                                    hint_text: "Densidad exp(g/cc):"
+                                    pos_hint: {"center_x":0.5}
+                                    font_size: dp(15)
+                                MDTextFieldRect:
+                                    id: rws
+                                    hint_text: "RWS(%):"
+                                    pos_hint: {"center_x":0.5}
+                                    font_size: dp(15)
+                                    multiline: False
+                                    #text:"100"
+                                                                                 
+                                MDBoxLayout:
+                                    orientation:"horizontal"
+                                    spacing:10
+                                    MDRaisedButton:
+                                        text: "Graficar"
+                                        on_release: 
+                                            app.gnrt_graph()
+                                    MDRaisedButton:
+                                        text: "Limpiar"
+                                        on_release: 
+                                            app.limpiar()
+                                
+                            MDBoxLayout:
+                                
+                                id: bx
+                                                            
+                MDScreen:
+                    name: "scr2"
+                    MDBoxLayout: 
+                        MDBoxLayout:
+                            orientation: "horizontal"
+                            padding: [5,70,80,5]                                         
+                            MDBoxLayout:
+                                orientation: "horizontal"
+                                padding: [10,20,100,10]
+                                spacing: 10
+                                MDBoxLayout:
+                                    orientation:"vertical" 
+                                    spacing: 10
+                                    MDLabel:
+                                        text:"VPP real"
+                                    MDLabel:
+                                        text:"(mm/s):"
+                                    MDTextFieldRect:
+                                        id: v1 
+                                        multiline: False
+                                        text:"3.62"
+                                        hint_text: "VPP n°1"
+                                        pos_hint: {"center_x":0.5}
+                                        font_size: dp(15)                                                                                                               
+                                    MDTextFieldRect:
+                                        id: v2 
+                                        multiline: False
+                                        text:"3.81"
+                                        hint_text: "VPP n°2"
+                                        pos_hint: {"center_x":0.5}
+                                        font_size: dp(15)
+                                    MDTextFieldRect:
+                                        id: v3
+                                        multiline: False
+                                        text:"6.35"
+                                        hint_text: "VPP n°3"
+                                        pos_hint: {"center_x":0.5}
+                                        font_size: dp(15)
+                                    MDTextFieldRect:
+                                        id: v4
+                                        multiline: False
+                                        text:"5.03"
+                                        hint_text: "VPP n°4"
+                                        pos_hint: {"center_x":0.5}
+                                        font_size: dp(15)
+                                    MDTextFieldRect:
+                                        id: v5
+                                        multiline: False
+                                        text:"6.77"
+                                        hint_text: "VPP n°5"
+                                        pos_hint: {"center_x":0.5}
+                                        font_size: dp(15)
+                                    MDTextFieldRect:
+                                        id: v6 
+                                        multiline: False
+                                        text:"4.68"
+                                        hint_text: "VPP n°6"
+                                        pos_hint: {"center_x":0.5}
+                                        font_size: dp(15)
+                                    MDTextFieldRect:
+                                        id: v7 
+                                        multiline: False
+                                        text:"2.54"
+                                        hint_text: "VPP n°7"
+                                        pos_hint: {"center_x":0.5}
+                                        font_size: dp(15)                                        
+                                    MDBoxLayout:
+                                        orientation:"horizontal"
+                                        spacing:10
+                                        MDRaisedButton:
+                                            text: "Graficar" 
+                                            on_release: 
+                                                app.atenua()
+                                        MDRaisedButton:
+                                            text: "limpiar"
+                                            on_release:
+                                                app.limpiar1 () 
+
+                                                                                  
+                                MDBoxLayout:
+                                    orientation:"vertical"    
+                                    spacing:"10" 
+                                    MDLabel:
+                                        text:"Distancia"   
+                                    MDLabel:
+                                        text:"(m):"                                
+                                    MDTextFieldRect:
+                                        id: d1 
+                                        multiline: False
+                                        text:"130"
+                                        hint_text: "Dist.n°1"
+                                        pos_hint: {"center_x":0.5}
+                                        font_size: dp(15)                                                                                                               
+                                    MDTextFieldRect:
+                                        id: d2 
+                                        multiline: False
+                                        text:"116.5"
+                                        hint_text: "Dist.n°2"
+                                        pos_hint: {"center_x":0.5}
+                                        font_size: dp(15)
+                                    MDTextFieldRect:
+                                        id: d3
+                                        multiline: False
+                                        text:"90.2"
+                                        hint_text: "Dist.n°3"
+                                        pos_hint: {"center_x":0.5}
+                                        font_size: dp(15)
+                                    MDTextFieldRect:
+                                        id: d4
+                                        multiline: False
+                                        text:"114.7"
+                                        hint_text: "Dist.n°4"
+                                        pos_hint: {"center_x":0.5}
+                                        font_size: dp(15)
+                                    MDTextFieldRect:
+                                        id: d5
+                                        multiline: False
+                                        text:"105"
+                                        hint_text: "Dist.n°5"
+                                        pos_hint: {"center_x":0.5}
+                                        font_size: dp(15)
+                                    MDTextFieldRect:
+                                        id: d6 
+                                        multiline: False
+                                        text:"106.8"
+                                        hint_text: "Dist.n°6"
+                                        pos_hint: {"center_x":0.5}
+                                        font_size: dp(15)
+                                    MDTextFieldRect:
+                                        id: d7
+                                        multiline: False
+                                        text:"114.7"
+                                        hint_text: "Dist.n°7"
+                                        pos_hint: {"center_x":0.5}
+                                        font_size: dp(15)
+                                      
+                                    MDBoxLayout:
+                                        orientation:"horizontal"
+                                        spacing:10
+                                        MDLabel:
+                                            text:""       
+                                MDBoxLayout:
+                                    orientation:"vertical"    
+                                    spacing:"10"    
+                                    MDLabel:
+                                        text:"Carg.Oper."
+                                    MDLabel:
+                                        text:"(Kg.):"                                
+                                    MDTextFieldRect:
+                                        id: k1 
+                                        multiline: False
+                                        text:"8.3"
+                                        hint_text: "Carga n°1"
+                                        pos_hint: {"center_x":0.5}
+                                        font_size: dp(15)                                                                                                               
+                                    MDTextFieldRect:
+                                        id: k2 
+                                        multiline: False
+                                        text:"15.2"
+                                        hint_text: "carga n°2"
+                                        pos_hint: {"center_x":0.5}
+                                        font_size: dp(15)
+                                    MDTextFieldRect:
+                                        id: k3
+                                        multiline: False
+                                        text:"11.1"
+                                        hint_text: "carga n°3"
+                                        pos_hint: {"center_x":0.5}
+                                        font_size: dp(15)
+                                    MDTextFieldRect:
+                                        id: k4
+                                        multiline: False
+                                        text:"9"
+                                        hint_text: "carga n°4"
+                                        pos_hint: {"center_x":0.5}
+                                        font_size: dp(15)
+                                    MDTextFieldRect:
+                                        id: k5
+                                        multiline: False
+                                        text:"15"
+                                        hint_text: "carga n°5"
+                                        pos_hint: {"center_x":0.5}
+                                        font_size: dp(15)
+                                    MDTextFieldRect:
+                                        id: k6 
+                                        multiline: False
+                                        text:"19.3"
+                                        hint_text: "carga n°6"
+                                        pos_hint: {"center_x":0.5}
+                                        font_size: dp(15)
+                                    MDTextFieldRect:
+                                        id: k7
+                                        multiline: False
+                                        text:"15.4"
+                                        hint_text: "carga n°7"
+                                        pos_hint: {"center_x":0.5}
+                                        font_size: dp(15)
+                                    
+                                    MDBoxLayout:
+                                        orientation:"horizontal"
+                                        spacing:10
+                                        MDLabel:
+                                            text:""                                                           
+                                
+                            MDBoxLayout:
+                                orientation:"vertical"
+                                MDBoxLayout:
+                                    id: bx1
+                                MDBoxLayout:
+                                    orientation: "vertical"
+                                    padding: [80,40,20,20]
+                                    spacing:5
+                                    MDBoxLayout:
+                                        orientation:"horizontal"    
+                                        MDLabel:
+                                            text:"Confianza"
+                                            halign: "center"                                   
+                                        MDTextFieldRect:
+                                            id: C1
+                                            multiline: False
+                                            pos_hint: {"center_x":0.5}
+                                            font_size: dp(10)  
+                                    MDBoxLayout:
+                                        orientation:"horizontal"    
+                                        MDLabel:
+                                            text:"CargaOperante"
+                                            halign: "center"
+                                        MDTextFieldRect:
+                                            id: K1
+                                            multiline: False
+                                            pos_hint: {"center_x":0.5}
+                                            font_size: dp(10)      
+                                    MDBoxLayout:
+                                        orientation:"horizontal"    
+                                        MDLabel:
+                                            text:"Distancia"
+                                            halign: "center"
+                                        MDTextFieldRect:
+                                            id: D1
+                                            multiline: False
+                                            pos_hint: {"center_x":0.5}
+                                            font_size: dp(10)   
+                                    MDBoxLayout:
+                                        orientation:"horizontal"    
+                                        MDLabel:
+                                            text:"alfa"
+                                            halign: "center" 
+                                            color: 0,0,1,1
+                                            
+                                        MDTextFieldRect:
+                                            id: alfa
+                                            multiline: False
+                                            pos_hint: {"center_x":0.5}
+                                            font_size: dp(10)   
+                                    MDBoxLayout:
+                                        orientation:"horizontal"    
+                                        MDLabel:
+                                            text:"K"
+                                            halign: "center"  
+                                            color: 0,0,1,1
+                                        MDTextFieldRect:
+                                            id:KN1
+                                            multiline: False
+                                            pos_hint: {"center_x":0.5}
+                                            font_size: dp(10)   
+                                    MDBoxLayout:
+                                        orientation:"horizontal"    
+                                        MDLabel:
+                                            text:"Knuevo"
+                                            halign: "center"    
+                                            color: 0,0,1,1             
+                                        MDTextFieldRect:
+                                            id: KN2
+                                            multiline: False
+                                            pos_hint: {"center_x":0.5}
+                                            font_size: dp(10)   
+                                    MDBoxLayout:
+                                        orientation:"horizontal"    
+                                        MDLabel:
+                                            text:"VPP estimada"
+                                            halign: "center"
+                                            color: 0,0,1,1
+                                        MDTextFieldRect:
+                                            id: V1
+                                            multiline: False
+                                            pos_hint: {"center_x":0.5}
+                                            font_size: dp(10)      
+
+                                                                         
+                                                
+            MDNavigationDrawer:
+                id: nav_draw
+                orientation: "vertical"
+                padding: "8dp"
+                spacing: "8dp"
+                
+                AnchorLayout:
+                    anchor_x: "left"
+                    size_hint_y: None
+                    height: avatar.height
+        
+                    Image:
+                        id: avatar
+                        size_hint: None, None
+                        size: "56dp", "56dp"
+                        source: "mylogo.png"
+        
+                MDLabel:
+                    text: "César Lozada"
+                    font_style: "Caption"
+                    size_hint_y: None
+                    height: self.texture_size[1]
+            
+                MDLabel:
+                    text: "cesarbrianlozada@gmail.com"
+                    font_style: "Caption"
+                    size_hint_y: None
+                    height: self.texture_size[1]
+                
+                ScrollView:
+                    MDList:
+                        OneLineAvatarListItem:
+                            on_press:
+                                nav_draw.set_state("close")
+                                screen_manager.current = "scr1"
+        
+                            text: "Fragmentación"
+                            IconLeftWidget:
+                                icon: "frag.png"
+        
+                        OneLineAvatarListItem:
+                            on_press:
+                                nav_draw.set_state("close")
+                                screen_manager.current = "scr2"
+                            text: "Vibraciones"
+                            IconLeftWidget:
+                                icon: "vib.png"
+                                    
